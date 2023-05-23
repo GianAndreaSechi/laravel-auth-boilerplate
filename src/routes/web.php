@@ -20,9 +20,7 @@ Route::get('/', function () {
 
 
 //API Routes of application
-Route::prefix('api/v1')->group(function () {
-    Route::get('/ping', function () {
-        return json_encode(array('ping'=> now()));
-    });
-});
+/*Route::prefix('api/v1')->group(function () {
+    Route::get('auth/login', 'App\Http\Controllers\AuthController@login');
+});*/
 
