@@ -61,7 +61,6 @@ Launch:
 
 `
 \> composer global require laravel/installer
-\> php artisan install
 `
 
 Database:
