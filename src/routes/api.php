@@ -20,15 +20,21 @@ Route::get('ping', function () {
     return response()->json(array('ping'=> now()));
 });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+
+Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
     return $request->user();
 });
 
-Route::post('register', [UserController::class,'register'])->name('register');
-Route::post('login', [UserController::class,'authenticate'])->name ('login');
-Route::get('open', [DataController::class,'open'])->name('open');
-Route::group(['middleware' => ['jwt.verify']], function() {
-    Route::get('user', [UserController::class,'getAuthenticatedUser'])->name('user');
+
+Route::group(['prefix'=>'users'], function() {
+    Route::post('register', [UserController::class,'register'])->name('register');
+    Route::post('login', [UserController::class,'authenticate'])->name ('login');
+    Route::get('open', [DataController::class,'open'])->name('open');
+});
+
+Route::group(['prefix'=>'users', 'middleware' => ['jwt.verify']], function() {
+    Route::get('', [UserController::class,'getAuthenticatedUser'])->name('user');
+    Route::get('list', [UserController::class,'getUsers'])->name('users');
     Route::get('closed', [DataController::class,'closed'])->name('closed');
 });
 

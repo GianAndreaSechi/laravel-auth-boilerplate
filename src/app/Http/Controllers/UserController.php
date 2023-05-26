@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
@@ -55,25 +54,24 @@ use Tymon\JWTAuth\Facades\JWTAuth as FacadesJWTAuth;
         public function getAuthenticatedUser()
             {
                 try {
-
-                        if (! $user = FacadesJWTAuth::parseToken()->authenticate()) {
-                                return response()->json(['user_not_found'], 404);
-                        }
-
+                    if (! $user = FacadesJWTAuth::parseToken()->authenticate()) {
+                            return response()->json(['user_not_found'], 404);
+                    }
                 } catch (TokenExpiredException $e) {
-
                         return response()->json(['token_expired'], $e->getStatusCode());
-
                 } catch (TokenInvalidException $e) {
-
                         return response()->json(['token_invalid'], $e->getStatusCode());
-
                 } catch (JWTException $e) {
-
                         return response()->json(['token_absent'], $e->getStatusCode());
-
                 }
 
                 return response()->json(compact('user'));
+        }
+
+        public function getUsers()
+        {
+            $users = User::all();
+
+            return response()->json($users);
         }
     }
