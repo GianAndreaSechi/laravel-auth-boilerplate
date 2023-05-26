@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::get('ping', function () {
+    return response()->json(array('ping'=> now()));
+});
+
+
+Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['prefix'=>'users'], function() {
+    Route::post('register', [UserController::class,'register'])->name('register');
+    Route::post('login', [UserController::class,'authenticate'])->name ('login');
+    Route::get('open', [DataController::class,'open'])->name('open');
+});
+
+Route::group(['prefix'=>'users', 'middleware' => ['jwt.verify']], function() {
+    Route::get('', [UserController::class,'getAuthenticatedUser'])->name('user');
+    Route::get('list', [UserController::class,'getUsers'])->name('users');
+    Route::get('closed', [DataController::class,'closed'])->name('closed');
+});
+
+

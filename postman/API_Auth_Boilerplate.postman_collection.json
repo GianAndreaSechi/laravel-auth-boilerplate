@@ -1,0 +1,253 @@
+{
+	"info": {
+		"_postman_id": "4e26e14a-b4ad-406b-b71b-3a19384a24d3",
+		"name": "API Pocket - Laravel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ping",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Admin",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "me@gianandreasechi.com",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "@nDr34!",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "password_confirmation",
+							"value": "@nDr34!",
+							"type": "default",
+							"disabled": true
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/api/ping",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"ping"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Admin",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "me@test.it",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "prova",
+							"disabled": true
+						},
+						{
+							"key": "password_confirmation",
+							"value": "prova",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/users/register?name=Admin&email=me@boilerplate.it&password=@dmin!strator&password_confirmation=@dmin!strator",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"register"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Admin"
+						},
+						{
+							"key": "email",
+							"value": "me@boilerplate.it"
+						},
+						{
+							"key": "password",
+							"value": "@dmin!strator"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "@dmin!strator"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/users/login?email=me@boilerplate.it&password=@dmin!strator",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "me@boilerplate.it"
+						},
+						{
+							"key": "password",
+							"value": "@dmin!strator"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3VzZXIvbG9naW4iLCJpYXQiOjE2ODUxMTI1NDMsImV4cCI6MTY4NTExNjE0MywibmJmIjoxNjg1MTEyNTQzLCJqdGkiOiJoZk02WUJFVWM5T0w2S1BQIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.X8XXB_2kGEM0AmzKdog5qZpW5O-UtnexnlmxKWUQdrw",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/users/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Open",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/api/users/open",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"open"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Closed",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjg1MTA4MjAwLCJleHAiOjE2ODUxMTE4MDAsIm5iZiI6MTY4NTEwODIwMCwianRpIjoiWHlmaWQzZ29DbEtUelJSdyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.XQT2BAMDsO1uvQrt0DimX3DTE1rYnAGGymnmP98y2eU",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/users/closed",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"closed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3VzZXIvbG9naW4iLCJpYXQiOjE2ODUxMTI1NDMsImV4cCI6MTY4NTExNjE0MywibmJmIjoxNjg1MTEyNTQzLCJqdGkiOiJoZk02WUJFVWM5T0w2S1BQIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.X8XXB_2kGEM0AmzKdog5qZpW5O-UtnexnlmxKWUQdrw",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/users/list",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
