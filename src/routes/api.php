@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('ping', function () {
-    return json_encode(array('ping'=> now()));
+    return response()->json(array('ping'=> now()));
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
