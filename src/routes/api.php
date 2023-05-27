@@ -29,12 +29,18 @@ Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
 Route::group(['prefix'=>'users'], function() {
     Route::post('register', [UserController::class,'register'])->name('register');
     Route::post('login', [UserController::class,'authenticate'])->name ('login');
+
     Route::get('open', [DataController::class,'open'])->name('open');
 });
 
 Route::group(['prefix'=>'users', 'middleware' => ['jwt.verify']], function() {
     Route::get('', [UserController::class,'getAuthenticatedUser'])->name('user');
+
+    Route::get('id/{id}', [UserController::class,'getUserById'])->name('Userid');
+    Route::get('email/{email}', [UserController::class,'getUserByEmail'])->name('UserEmail');
+
     Route::get('list', [UserController::class,'getUsers'])->name('users');
+
     Route::get('closed', [DataController::class,'closed'])->name('closed');
 });
 

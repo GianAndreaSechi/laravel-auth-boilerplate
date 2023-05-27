@@ -74,4 +74,26 @@ use Tymon\JWTAuth\Facades\JWTAuth as FacadesJWTAuth;
 
             return response()->json($users);
         }
+
+        public function getUserById($id)
+        {
+            $user = User::find($id);
+
+            if (!isset($user)) {
+                return response()->json(["message"=>"User id: ". $id ." doesn't exist"]); 
+            }
+
+            return response()->json($user);
+        }
+
+        public function getUserByEmail($email)
+        {
+            $user = User::where('email', $email)->first();
+
+            if (!isset($user)) {
+                return response()->json(["message"=>"User Email: ". $email ." doesn't exist"]); 
+            }
+
+            return response()->json($user);
+        }
     }

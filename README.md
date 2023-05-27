@@ -26,6 +26,8 @@ swagger is still not integrated (i will asap);
   - <base_url>/api/ping - no auth
   - <base_url>/api/users - auth
   - <base_url>/api/users/list - auth
+   - <base_url>/api/users/id/{id} - auth
+  - <base_url>/api/users/email/{email} - auth
 - POST:
   - <base_url>/api/users/login - no auth
   - <base_url>/api/users/register - no auth
@@ -68,6 +70,11 @@ you can import db\auth_db_laravel.sql or you can migrate thing there
 
 `
 \> php artisan migrate
+`
+
+To generate JWT secret
+`
+\> php artisan jwt:secret
 `
 
 `
