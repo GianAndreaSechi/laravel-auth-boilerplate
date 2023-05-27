@@ -248,6 +248,40 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Find User by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjg1MTgxNDQ0LCJleHAiOjE2ODUxODUwNDQsIm5iZiI6MTY4NTE4MTQ0NCwianRpIjoibFVJUkE2R2hGRDU0N1RzcyIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.FstDmsR5RqidN-Vk9kbCp8QhXIHKd9AX7nrQaoqe3ms",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/users/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find User by Email",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }
