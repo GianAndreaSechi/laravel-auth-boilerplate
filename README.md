@@ -73,11 +73,17 @@ you can import db\auth_db_laravel.sql or you can migrate thing there
 `
 
 To generate JWT secret
+
 `
 \> php artisan jwt:secret
 `
 
+Launch server
+
 `
 \> cd src
+`
+
+`
 \> php artisan serve
 `
