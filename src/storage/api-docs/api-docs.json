@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Laravel-Auth-Boilerplate Api Documentation",
-        "description": "Kodementor Api Documentation",
+        "description": "Laravel-Auth-Boilerplate Api Documentation",
         "contact": {
             "name": "Gian Andrea Sechi",
             "email": "me@gianandreasechi.com"
