@@ -26,11 +26,12 @@ swagger is still not integrated (i will asap);
   - <base_url>/api/ping - no auth
   - <base_url>/api/users - auth
   - <base_url>/api/users/list - auth
-   - <base_url>/api/users/id/{id} - auth
+  - <base_url>/api/users/id/{id} - auth
   - <base_url>/api/users/email/{email} - auth
 - POST:
   - <base_url>/api/users/login - no auth
   - <base_url>/api/users/register - no auth
+  - <base_url>/api/users/update - auth
 
 *you can import on Postman the pre-setted collection you can find in Postman/API_Auth_Boilerplate.postman_collection.json*
 

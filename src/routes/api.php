@@ -36,6 +36,8 @@ Route::group(['prefix'=>'users'], function() {
 Route::group(['prefix'=>'users', 'middleware' => ['jwt.verify']], function() {
     Route::get('', [UserController::class,'getAuthenticatedUser'])->name('user');
 
+    Route::post('update/', [UserController::class,'updatePassword'])->name('updatePassword');
+
     Route::get('id/{id}', [UserController::class,'getUserById'])->name('Userid');
     Route::get('email/{email}', [UserController::class,'getUserByEmail'])->name('UserEmail');
 

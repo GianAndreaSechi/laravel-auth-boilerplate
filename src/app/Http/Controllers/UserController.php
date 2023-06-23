@@ -51,6 +51,44 @@ use Tymon\JWTAuth\Facades\JWTAuth as FacadesJWTAuth;
             return response()->json(compact('user','token'),201);
         }
 
+        public function updatePassword(Request $request)
+        {
+
+            $validator = Validator::make($request->all(), [
+                'password' => 'required|string|min:6|confirmed'
+            ]);
+
+            if($validator->fails()){
+                    return response()->json($validator->errors()->toJson(), 400);
+            }
+
+            try {
+                if (! $user_auth = FacadesJWTAuth::parseToken()->authenticate()) {
+                        return response()->json(['user_not_found'], 404);
+                }
+                
+                $user = User::where(
+                    'email', $user_auth->email
+                )->first();
+
+                $new_password = Hash::make($request->get('password'));
+
+                $user->update([
+                    'password' => $new_password
+                ]);
+            } catch (JWTException $e) {
+                    return response()->json(['token_absent'], $e->getStatusCode());
+            }
+
+
+            return response()->json(
+                [
+                    "message" => "Password correctly updated!",
+                    "user" => $user_auth
+                ]);
+
+        }
+
         public function getAuthenticatedUser()
             {
                 try {
