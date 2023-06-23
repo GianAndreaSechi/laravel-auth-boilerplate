@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\PingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('ping', function () {
-    return response()->json(array('ping'=> now()));
-});
+Route::get('ping', [PingController::class,'ping'])->name('ping');
 
 
 Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
