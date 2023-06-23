@@ -17,21 +17,21 @@ Authorization action by role
 
 ---
 ### Routes
-* The API prefix is: *api/*
+* The API prefix is: *api/v1*
 * baseurl: localhost:8000
 
-swagger is still not integrated (i will asap);
+- SWAGGER: <base_url>/api/v1/documentation;
 
 - GET:
-  - <base_url>/api/ping - no auth
-  - <base_url>/api/users - auth
-  - <base_url>/api/users/list - auth
-  - <base_url>/api/users/id/{id} - auth
-  - <base_url>/api/users/email/{email} - auth
+  - <base_url>/api/v1/ping - no auth
+  - <base_url>/api/v1/users - auth
+  - <base_url>/api/v1/users/list - auth
+  - <base_url>/api/v1/users/id/{id} - auth
+  - <base_url>/api/v1/users/email/{email} - auth
 - POST:
-  - <base_url>/api/users/login - no auth
-  - <base_url>/api/users/register - no auth
-  - <base_url>/api/users/update - auth
+  - <base_url>/api/v1/users/login - no auth
+  - <base_url>/api/v1/users/register - no auth
+  - <base_url>/api/v1/users/update - auth
 
 *you can import on Postman the pre-setted collection you can find in Postman/API_Auth_Boilerplate.postman_collection.json*
 
@@ -77,6 +77,11 @@ To generate JWT secret
 
 `
 \> php artisan jwt:secret
+`
+
+To generate/update Swagger
+`
+\> php artisan l5-swagger:generate
 `
 
 Launch server
