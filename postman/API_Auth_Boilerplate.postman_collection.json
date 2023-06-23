@@ -30,13 +30,13 @@
 						},
 						{
 							"key": "password",
-							"value": "@nDr34!",
+							"value": "@dmin!strator",
 							"type": "default",
 							"disabled": true
 						},
 						{
 							"key": "password_confirmation",
-							"value": "@nDr34!",
+							"value": "@dmin!strator",
 							"type": "default",
 							"disabled": true
 						}
@@ -77,6 +77,42 @@
 							"key": "password_confirmation",
 							"value": "prova",
 							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Password",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjg3NTQ2Mjc5LCJleHAiOjE2ODc1NDk4NzksIm5iZiI6MTY4NzU0NjI3OSwianRpIjoicVNRTGVtT2dzOXJNR3llUiIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.v4_ggyOI-6zcMM8J7l1Pc2Hzs_TqV2ez5WsUYagFvOo",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/users/update?password=@dmin!strator&password_confirmation=@dmin!strator",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"update"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "@dmin!strator"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "@dmin!strator"
 						}
 					]
 				}
@@ -127,7 +163,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/api/users/login?email=me@boilerplate.it&password=@dmin!strator",
+					"raw": "localhost:8000/api/users/login?email=me@boilerplate.it&password=@dmin!strator!",
 					"host": [
 						"localhost"
 					],
@@ -144,7 +180,7 @@
 						},
 						{
 							"key": "password",
-							"value": "@dmin!strator"
+							"value": "@dmin!strator!"
 						}
 					]
 				}
@@ -158,7 +194,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3VzZXIvbG9naW4iLCJpYXQiOjE2ODUxMTI1NDMsImV4cCI6MTY4NTExNjE0MywibmJmIjoxNjg1MTEyNTQzLCJqdGkiOiJoZk02WUJFVWM5T0w2S1BQIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.X8XXB_2kGEM0AmzKdog5qZpW5O-UtnexnlmxKWUQdrw",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjg1ODA2NDc4LCJleHAiOjE2ODU4MTAwNzgsIm5iZiI6MTY4NTgwNjQ3OCwianRpIjoiUjIwaWp5N3ZsMEp4RkNxSyIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.eQophcIlQ-gw5C4kUotZcVP6u5QsB3OxdFGbIzLKPY8",
 						"type": "default"
 					}
 				],
@@ -261,7 +297,7 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8000/api/users/3",
+					"raw": "localhost:8000/api/users/id/3",
 					"host": [
 						"localhost"
 					],
@@ -269,6 +305,7 @@
 					"path": [
 						"api",
 						"users",
+						"id",
 						"3"
 					]
 				}
@@ -279,7 +316,26 @@
 			"name": "Find User by Email",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjg1MTgxNDQ0LCJleHAiOjE2ODUxODUwNDQsIm5iZiI6MTY4NTE4MTQ0NCwianRpIjoibFVJUkE2R2hGRDU0N1RzcyIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.FstDmsR5RqidN-Vk9kbCp8QhXIHKd9AX7nrQaoqe3ms",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/users/email/me@test.it",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"email",
+						"me@test.it"
+					]
+				}
 			},
 			"response": []
 		}
