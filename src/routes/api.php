@@ -27,7 +27,7 @@ Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
 
 Route::group(['prefix'=>'users'], function() {
     Route::post('register', [UserController::class,'register'])->name('register');
-    Route::post('login', [UserController::class,'authenticate'])->name ('login');
+    Route::post('login', [UserController::class,'authenticate'])->name ('login_api');
 
     Route::get('open', [DataController::class,'open'])->name('open');
 });
