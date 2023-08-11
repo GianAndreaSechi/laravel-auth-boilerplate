@@ -18,9 +18,8 @@ Route::get('/', function () {
 });
 
 
+Route::get('/login', function(){
+    return view('login');
+})->name('login');
 
-//API Routes of application
-/*Route::prefix('api/v1')->group(function () {
-    Route::get('auth/login', 'App\Http\Controllers\AuthController@login');
-});*/
 

@@ -98,6 +98,8 @@ use Tymon\JWTAuth\Facades\JWTAuth as FacadesJWTAuth;
 
             $token = FacadesJWTAuth::fromUser($user);
 
+            
+
             return response()->json(compact('user','token'),201);
         }
 
