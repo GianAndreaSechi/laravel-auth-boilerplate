@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+//Route::middleware('jwt.verify')->get('/', function () {
+Route::middleware('auth.basic')->get('/', function () {
     return view('welcome');
 });
 

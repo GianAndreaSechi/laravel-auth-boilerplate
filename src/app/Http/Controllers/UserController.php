@@ -4,105 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
-use Tymon\JWTAuth\Facades\JWTAuth as FacadesJWTAuth;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
     class UserController extends Controller
     {
-        /**
-     * @OA\Post(
-     *    path="/users/login",
-     *    operationId="authenticate",
-     *    tags={"users"},
-     *    summary="Get user JWT authentication",
-     *    description="Get user JWT authentication",
-     *    @OA\Parameter(name="email",description="User email",required=true,in="query",
-     *          @OA\Schema(type="string")
-     *      ),
-     *    @OA\Parameter(name="password", in="query", description="user password", required=true,
-     *        @OA\Schema(type="string")
-     *    ),
-     *     @OA\Response(
-     *          response=200, description="Success",
-     *          @OA\JsonContent(
-     *             @OA\Property(property="token",type="string", example="<JWT Token>")
-     *          )
-     *       )
-     *  )
-     */
-        public function authenticate(Request $request)
-        {
-            $credentials = $request->only('email', 'password');
-
-            try {
-                if (! $token = FacadesJWTAuth::attempt($credentials)) {
-                    return response()->json(['error' => 'invalid_credentials'], 400);
-                }
-            } catch (JWTException $e) {
-                return response()->json(['error' => 'could_not_create_token'], 500);
-            }
-
-            return response()->json(compact('token'));
-        }
-
-        /**
-     * @OA\Post(
-     *    path="/users/register",
-     *    operationId="signup",
-     *    tags={"users"},
-     *    summary="Sign up user",
-     *    description="Sign up user",
-     *    @OA\Parameter(name="name",description="Username",required=true,in="query",
-     *          @OA\Schema(type="string")
-     *      ),
-     *    @OA\Parameter(name="email",description="user email",required=true,in="query",
-     *          @OA\Schema(type="string")
-     *      ),
-     *    @OA\Parameter(name="password", in="query", description="user password", required=true,
-     *        @OA\Schema(type="string")
-     *    ),
-     *    @OA\Parameter(name="password_confirmation", in="query", description="user password", required=true,
-     *        @OA\Schema(type="string")
-     *    ),
-     *     @OA\Response(
-     *          response=200, description="Success",
-     *          @OA\JsonContent(
-     *             @OA\Property(property="user",type="object", example="<User Object>"),
-     *             @OA\Property(property="token",type="string", example="<JWT Token>")
-     *          ),
-     *          response=400, description="Error"
-     *       )
-     *  )
-     */
-        public function register(Request $request)
-        {
-                $validator = Validator::make($request->all(), [
-                'name' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:6|confirmed',
-            ]);
-
-            if($validator->fails()){
-                    return response()->json($validator->errors()->toJson(), 400);
-            }
-
-            $user = User::create([
-                'name' => $request->get('name'),
-                'email' => $request->get('email'),
-                'password' => Hash::make($request->get('password')),
-            ]);
-
-            $token = FacadesJWTAuth::fromUser($user);
-
-            
-
-            return response()->json(compact('user','token'),201);
-        }
-
         /**
      * @OA\Post(
      *    path="/users/update",
@@ -140,7 +51,7 @@ use Tymon\JWTAuth\Facades\JWTAuth as FacadesJWTAuth;
             }
 
             try {
-                if (! $user_auth = FacadesJWTAuth::parseToken()->authenticate()) {
+                if (! $user_auth = JWTAuth::parseToken()->authenticate()) {
                         return response()->json(['user_not_found'], 404);
                 }
                 
@@ -187,7 +98,7 @@ use Tymon\JWTAuth\Facades\JWTAuth as FacadesJWTAuth;
         public function getAuthenticatedUser()
             {
                 try {
-                    if (! $user = FacadesJWTAuth::parseToken()->authenticate()) {
+                    if (! $user = JWTAuth::parseToken()->authenticate()) {
                             return response()->json(['user_not_found'], 404);
                     }
                 } catch (TokenExpiredException $e) {

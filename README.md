@@ -28,9 +28,12 @@ Authorization action by role
   - <base_url>/api/v1/users/list - auth
   - <base_url>/api/v1/users/id/{id} - auth
   - <base_url>/api/v1/users/email/{email} - auth
+
+  - <base_url>/login - routes for web login
 - POST:
-  - <base_url>/api/v1/users/login - no auth
-  - <base_url>/api/v1/users/register - no auth
+  - <base_url>/api/v1/login - no auth
+  - <base_url>/api/v1/register - no auth
+  - <base_url>/api/v1/logout - auth
   - <base_url>/api/v1/users/update - auth
 
 *you can import on Postman the pre-setted collection you can find in Postman/API_Auth_Boilerplate.postman_collection.json*
