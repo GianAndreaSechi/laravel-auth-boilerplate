@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\PingController;
 use App\Http\Controllers\UserController;
@@ -25,9 +26,11 @@ Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
 });
 
 
-Route::group(['prefix'=>'users'], function() {
-    Route::post('register', [UserController::class,'register'])->name('register');
-    Route::post('login', [UserController::class,'authenticate'])->name ('login_api');
+
+Route::group(['prefix'=>''], function() {
+    Route::post('signup', [AuthController::class,'signup'])->name('signup');
+    Route::post('login', [AuthController::class,'authenticate'])->name ('login_api');
+    Route::post('logout', [AuthController::class,'logout'])->name ('logout');
 
     Route::get('open', [DataController::class,'open'])->name('open');
 });

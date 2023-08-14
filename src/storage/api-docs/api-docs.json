@@ -2,7 +2,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "Laravel-Auth-Boilerplate Api Documentation",
-        "description": "Laravel-Auth-Boilerplate Api Documentation",
+        "description": "Kodementor Api Documentation",
         "contact": {
             "name": "Gian Andrea Sechi",
             "email": "me@gianandreasechi.com"
@@ -19,87 +19,10 @@
         }
     ],
     "paths": {
-        "/ping": {
-            "get": {
-                "tags": [
-                    "Ping"
-                ],
-                "summary": "Get api health",
-                "description": "Get api health",
-                "operationId": "ping",
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "ping": {
-                                            "type": "string",
-                                            "format": "date-time",
-                                            "example": "2023-06-23T19:58:46.094723Z"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/users/login": {
+        "/signup": {
             "post": {
                 "tags": [
-                    "users"
-                ],
-                "summary": "Get user JWT authentication",
-                "description": "Get user JWT authentication",
-                "operationId": "authenticate",
-                "parameters": [
-                    {
-                        "name": "email",
-                        "in": "query",
-                        "description": "User email",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "name": "password",
-                        "in": "query",
-                        "description": "user password",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "token": {
-                                            "type": "string",
-                                            "example": "<JWT Token>"
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/users/register": {
-            "post": {
-                "tags": [
-                    "users"
+                    "authentication"
                 ],
                 "summary": "Sign up user",
                 "description": "Sign up user",
@@ -156,6 +79,116 @@
                                         "token": {
                                             "type": "string",
                                             "example": "<JWT Token>"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "authentication"
+                ],
+                "summary": "Get user JWT authentication",
+                "description": "Get user JWT authentication",
+                "operationId": "authenticate",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "User email",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "user password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string",
+                                            "example": "<JWT Token>"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "authentication"
+                ],
+                "summary": "Logout user",
+                "description": "Logout user",
+                "operationId": "logout",
+                "responses": {
+                    "400": {
+                        "description": "Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "user": {
+                                            "type": "object",
+                                            "example": "<User Object>"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        },
+        "/ping": {
+            "get": {
+                "tags": [
+                    "Ping"
+                ],
+                "summary": "Get api health",
+                "description": "Get api health",
+                "operationId": "ping",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "ping": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "example": "2023-06-23T19:58:46.094723Z"
                                         }
                                     },
                                     "type": "object"
