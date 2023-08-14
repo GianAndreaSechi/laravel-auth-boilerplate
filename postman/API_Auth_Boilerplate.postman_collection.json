@@ -31,13 +31,13 @@
 						},
 						{
 							"key": "password",
-							"value": "@dmin!strator",
+							"value": "password",
 							"type": "default",
 							"disabled": true
 						},
 						{
 							"key": "password_confirmation",
-							"value": "@dmin!strator",
+							"value": "password",
 							"type": "default",
 							"disabled": true
 						}
@@ -87,12 +87,12 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjkxNzkyMzIxLCJleHAiOjE2OTE3OTU5MjEsIm5iZiI6MTY5MTc5MjMyMSwianRpIjoiOGFybTNtQWpGOWg2V0E0OSIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.pFJ1-Uzs3IYtKxt-HRkOvGqhTYd1PbLQpIOrM6VrImU",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjkyMDUwNDQxLCJleHAiOjE2OTIwNTQwNDEsIm5iZiI6MTY5MjA1MDQ0MSwianRpIjoiUVFwM0E5TEJQMTdVdzBrUiIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.ecLSR4Ke6NPdlNzwwpoGVGgMxzg6_p3ubIeQSVYxJVs",
 						"type": "default"
 					}
 				],
 				"url": {
-					"raw": "localhost:8000/api/v1/users/update?password=@dmin!strator&password_confirmation=@dmin!strator",
+					"raw": "localhost:8000/api/v1/users/update?password=password&password_confirmation=password",
 					"host": [
 						"localhost"
 					],
@@ -106,11 +106,11 @@
 					"query": [
 						{
 							"key": "password",
-							"value": "@dmin!strator"
+							"value": "password"
 						},
 						{
 							"key": "password_confirmation",
-							"value": "@dmin!strator"
+							"value": "password"
 						}
 					]
 				}
@@ -118,12 +118,12 @@
 			"response": []
 		},
 		{
-			"name": "Register",
+			"name": "Signup",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/api/v1/register?name=Admin_2&email=me_2@boilerplate.it&password=@dmin!strator&password_confirmation=@dmin!strator",
+					"raw": "localhost:8000/api/v1/signup?name=Admin_4&email=me_4@boilerplate.it&password=password&password_confirmation=password",
 					"host": [
 						"localhost"
 					],
@@ -131,24 +131,24 @@
 					"path": [
 						"api",
 						"v1",
-						"register"
+						"signup"
 					],
 					"query": [
 						{
 							"key": "name",
-							"value": "Admin_2"
+							"value": "Admin_4"
 						},
 						{
 							"key": "email",
-							"value": "me_2@boilerplate.it"
+							"value": "me_4@boilerplate.it"
 						},
 						{
 							"key": "password",
-							"value": "@dmin!strator"
+							"value": "password"
 						},
 						{
 							"key": "password_confirmation",
-							"value": "@dmin!strator"
+							"value": "password"
 						}
 					]
 				}
@@ -293,7 +293,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjkyMDQ2NjQzLCJleHAiOjE2OTIwNTAyNDMsIm5iZiI6MTY5MjA0NjY0MywianRpIjoiNjBsRkFUc1F3cXUwTFdWSiIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.yYngBSpDmn9PZy8aomJTqso0uZijIXQeHyYYs7Z3VrM",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjkyMDUwNTc0LCJleHAiOjE2OTIwNTQxNzQsIm5iZiI6MTY5MjA1MDU3NCwianRpIjoiQ1FJOTZZdlpFUVY1NGZsRiIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.32C_INfkOfiAFAKIhjo2e8EUgXmZyTjgMy2rKdYU9v4",
 						"type": "default"
 					}
 				],
