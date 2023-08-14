@@ -2,7 +2,8 @@
 	"info": {
 		"_postman_id": "4e26e14a-b4ad-406b-b71b-3a19384a24d3",
 		"name": "API Pocket - Laravel",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29095948"
 	},
 	"item": [
 		{
@@ -40,21 +41,17 @@
 							"type": "default",
 							"disabled": true
 						}
-					],
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					]
 				},
 				"url": {
-					"raw": "localhost:8000/api/ping",
+					"raw": "localhost:8000/api/v1/ping",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"api",
+						"v1",
 						"ping"
 					],
 					"query": [
@@ -90,18 +87,19 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjg3NTQ2Mjc5LCJleHAiOjE2ODc1NDk4NzksIm5iZiI6MTY4NzU0NjI3OSwianRpIjoicVNRTGVtT2dzOXJNR3llUiIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.v4_ggyOI-6zcMM8J7l1Pc2Hzs_TqV2ez5WsUYagFvOo",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjkxNzkyMzIxLCJleHAiOjE2OTE3OTU5MjEsIm5iZiI6MTY5MTc5MjMyMSwianRpIjoiOGFybTNtQWpGOWg2V0E0OSIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.pFJ1-Uzs3IYtKxt-HRkOvGqhTYd1PbLQpIOrM6VrImU",
 						"type": "default"
 					}
 				],
 				"url": {
-					"raw": "localhost:8000/api/users/update?password=@dmin!strator&password_confirmation=@dmin!strator",
+					"raw": "localhost:8000/api/v1/users/update?password=@dmin!strator&password_confirmation=@dmin!strator",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"api",
+						"v1",
 						"users",
 						"update"
 					],
@@ -125,24 +123,24 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/api/users/register?name=Admin&email=me@boilerplate.it&password=@dmin!strator&password_confirmation=@dmin!strator",
+					"raw": "localhost:8000/api/v1/register?name=Admin_2&email=me_2@boilerplate.it&password=@dmin!strator&password_confirmation=@dmin!strator",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"api",
-						"users",
+						"v1",
 						"register"
 					],
 					"query": [
 						{
 							"key": "name",
-							"value": "Admin"
+							"value": "Admin_2"
 						},
 						{
 							"key": "email",
-							"value": "me@boilerplate.it"
+							"value": "me_2@boilerplate.it"
 						},
 						{
 							"key": "password",
@@ -163,14 +161,14 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/api/users/login?email=me@boilerplate.it&password=@dmin!strator!",
+					"raw": "localhost:8000/api/v1/login?email=me@boilerplate.it&password=@dmin!strator",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"api",
-						"users",
+						"v1",
 						"login"
 					],
 					"query": [
@@ -180,8 +178,34 @@
 						},
 						{
 							"key": "password",
-							"value": "@dmin!strator!"
+							"value": "@dmin!strator"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNjkyMDQ5OTM4LCJleHAiOjE2OTIwNTM1MzgsIm5iZiI6MTY5MjA0OTkzOCwianRpIjoiYmtPU2RZbDFDNFJGN1dSVCIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.2RbGJ9Chx5JzBRkv5wmrQDYSOk-Ob536N00SWsJHrWw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/v1/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"logout"
 					]
 				}
 			},
@@ -194,18 +218,19 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjg1ODA2NDc4LCJleHAiOjE2ODU4MTAwNzgsIm5iZiI6MTY4NTgwNjQ3OCwianRpIjoiUjIwaWp5N3ZsMEp4RkNxSyIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.eQophcIlQ-gw5C4kUotZcVP6u5QsB3OxdFGbIzLKPY8",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjkyMDQ2NjQzLCJleHAiOjE2OTIwNTAyNDMsIm5iZiI6MTY5MjA0NjY0MywianRpIjoiNjBsRkFUc1F3cXUwTFdWSiIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.yYngBSpDmn9PZy8aomJTqso0uZijIXQeHyYYs7Z3VrM",
 						"type": "default"
 					}
 				],
 				"url": {
-					"raw": "localhost:8000/api/users/",
+					"raw": "localhost:8000/api/v1/users/",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"api",
+						"v1",
 						"users",
 						""
 					]
@@ -219,13 +244,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8000/api/users/open",
+					"raw": "localhost:8000/api/v1/users/open",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"api",
+						"v1",
 						"users",
 						"open"
 					]
@@ -245,13 +271,14 @@
 					}
 				],
 				"url": {
-					"raw": "localhost:8000/api/users/closed",
+					"raw": "localhost:8000/api/v1/users/closed",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"api",
+						"v1",
 						"users",
 						"closed"
 					]
@@ -266,18 +293,19 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3VzZXIvbG9naW4iLCJpYXQiOjE2ODUxMTI1NDMsImV4cCI6MTY4NTExNjE0MywibmJmIjoxNjg1MTEyNTQzLCJqdGkiOiJoZk02WUJFVWM5T0w2S1BQIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.X8XXB_2kGEM0AmzKdog5qZpW5O-UtnexnlmxKWUQdrw",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjkyMDQ2NjQzLCJleHAiOjE2OTIwNTAyNDMsIm5iZiI6MTY5MjA0NjY0MywianRpIjoiNjBsRkFUc1F3cXUwTFdWSiIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.yYngBSpDmn9PZy8aomJTqso0uZijIXQeHyYYs7Z3VrM",
 						"type": "default"
 					}
 				],
 				"url": {
-					"raw": "localhost:8000/api/users/list",
+					"raw": "localhost:8000/api/v1/users/list",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"api",
+						"v1",
 						"users",
 						"list"
 					]
@@ -292,18 +320,19 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjg1MTgxNDQ0LCJleHAiOjE2ODUxODUwNDQsIm5iZiI6MTY4NTE4MTQ0NCwianRpIjoibFVJUkE2R2hGRDU0N1RzcyIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.FstDmsR5RqidN-Vk9kbCp8QhXIHKd9AX7nrQaoqe3ms",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjg3NTU0Njk0LCJleHAiOjE2ODc1NTgyOTQsIm5iZiI6MTY4NzU1NDY5NCwianRpIjoiaHptcGJhQTRCSWFoRlBYYSIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.qcS4bXUW8CAELdBZmeePFVEH37NM5BQ0PF3Yb8v62bU",
 						"type": "default"
 					}
 				],
 				"url": {
-					"raw": "localhost:8000/api/users/id/3",
+					"raw": "localhost:8000/api/v1/users/id/3",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"api",
+						"v1",
 						"users",
 						"id",
 						"3"
@@ -319,21 +348,22 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjg1MTgxNDQ0LCJleHAiOjE2ODUxODUwNDQsIm5iZiI6MTY4NTE4MTQ0NCwianRpIjoibFVJUkE2R2hGRDU0N1RzcyIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.FstDmsR5RqidN-Vk9kbCp8QhXIHKd9AX7nrQaoqe3ms",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3VzZXJzL2xvZ2luIiwiaWF0IjoxNjg3NTQ5MTg5LCJleHAiOjE2ODc1NTI3ODksIm5iZiI6MTY4NzU0OTE4OSwianRpIjoiOVU2MHVLWHNXTHVhdlRrUyIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.xmqiQ4Ho6-jurPyn2oFsEAj1-2s27KKPhy3jPqiDlDI",
 						"type": "default"
 					}
 				],
 				"url": {
-					"raw": "localhost:8000/api/users/email/me@test.it",
+					"raw": "localhost:8000/api/v1/users/email/me@boilerplate.it",
 					"host": [
 						"localhost"
 					],
 					"port": "8000",
 					"path": [
 						"api",
+						"v1",
 						"users",
 						"email",
-						"me@test.it"
+						"me@boilerplate.it"
 					]
 				}
 			},
