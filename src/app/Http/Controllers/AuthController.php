@@ -93,10 +93,18 @@ class AuthController extends Controller
 
         try {
             if (! $token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 400);
+                if($isWeb){
+                    return redirect()->route('login')->with('login_error', 'Invalid credential. Try again.');
+                } else {
+                    return response()->json(['error' => 'invalid_credentials'], 400);
+                }                
             }
         } catch (JWTException $e) {
-            return response()->json(['error' => 'could_not_create_token'], 500);
+            if($isWeb){
+                return redirect()->route('login')->with('login_error', 'Problem with JWT Token creation. Try again.');
+            } else {
+                return response()->json(['error' => 'could_not_create_token'], 500);
+            }
         }
 
         if($isWeb){

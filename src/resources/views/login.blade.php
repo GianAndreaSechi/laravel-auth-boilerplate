@@ -6,6 +6,7 @@
     <title>Login</title>
     <!-- Aggiungi il link al CSS di Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('app.css') }}">
 </head>
 <body>
     <div class="container mt-5">
@@ -29,6 +30,14 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Login</button>
                         </form>
+                        @if (session('login_error'))
+                        <div class="mb-3">
+                            <br />
+                            <div class="alert alert-danger">
+                                {{ session('login_error') }}
+                            </div>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
