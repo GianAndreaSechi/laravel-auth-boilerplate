@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -84,6 +86,7 @@ class AuthController extends Controller
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
+        $isWeb = $request->get('isWeb');
 
         try {
             if (! $token = JWTAuth::attempt($credentials)) {
@@ -93,7 +96,19 @@ class AuthController extends Controller
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
-        return response()->json(compact('token'));
+        if($isWeb){
+            Auth::attempt($credentials);
+            $user = Auth::user();
+
+            //save session if is webform
+            Session::put('jwt_token', $token);
+
+            return redirect()->intended('/');
+        } else {
+            return response()->json(compact('token'));
+        }
+        
+        //return response()->json(compact('token'));
     }
     
 
@@ -115,19 +130,22 @@ class AuthController extends Controller
      *       )
      *  )
      */
-    public function logout()
+    public function logout(Request $request)
     {
         // Maybe set below to `false`,
         // else cache may take too much storage.
         $forever = true;
 
-        // Both loads and blacklists
-        // (the token, if it's set, else may raise exception).
-        JWTAuth::parseToken()->invalidate( $forever );
+        if($request->isMethod('post')){
+            // Both loads and blacklists
+            // (the token, if it's set, else may raise exception).
+            JWTAuth::parseToken()->invalidate( $forever );
+            return response()->json(['message' => 'Successfully logged out']);
+        } else {
+            Session::forget('jwt_token');
+            Auth::logout();
 
-    
-        return response()->json(['message' => 'Successfully logged out']);
+            return redirect()->intended('/login');
+        }
     }
-    
-
 }

@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-header">Login</div>
                     <div class="card-body">
-                        <form action="{{ url('api/v1/users/login') }}" method="POST">
+                        <form action="{{ url('api/v1/login') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
@@ -23,6 +23,9 @@
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="hidden" name="isWeb" value="1">  
                             </div>
                             <button type="submit" class="btn btn-primary">Login</button>
                         </form>
