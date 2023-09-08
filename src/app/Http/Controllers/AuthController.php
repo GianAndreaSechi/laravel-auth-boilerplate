@@ -72,8 +72,11 @@ class AuthController extends Controller
      *    @OA\Parameter(name="email",description="User email",required=true,in="query",
      *          @OA\Schema(type="string")
      *      ),
-     *    @OA\Parameter(name="password", in="query", description="user password", required=true,
+     *    @OA\Parameter(name="password", in="query", description="User password", required=true,
      *        @OA\Schema(type="string")
+     *    ),
+     *    @OA\Parameter(name="isWeb", in="query", description="Define if it's a webform request", required=false,
+     *        @OA\Schema(type="bool")
      *    ),
      *     @OA\Response(
      *          response=200, description="Success",

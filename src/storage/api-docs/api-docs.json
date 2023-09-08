@@ -110,10 +110,19 @@
                     {
                         "name": "password",
                         "in": "query",
-                        "description": "user password",
+                        "description": "User password",
                         "required": true,
                         "schema": {
                             "type": "string"
+                        }
+                    },
+                    {
+                        "name": "isWeb",
+                        "in": "query",
+                        "description": "Define if it's a webform request",
+                        "required": false,
+                        "schema": {
+                            "type": "bool"
                         }
                     }
                 ],
