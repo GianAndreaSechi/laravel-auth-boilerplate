@@ -30,7 +30,7 @@ Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
 Route::group(['prefix'=>''], function() {
     Route::post('signup', [AuthController::class,'signup'])->name('signup');
     Route::post('login', [AuthController::class,'authenticate'])->name ('login_api');
-    Route::post('logout', [AuthController::class,'logout'])->name ('logout');
+    Route::post('logout', [AuthController::class,'logout'])->name ('logout_api');
 
     Route::get('open', [DataController::class,'open'])->name('open');
 });
